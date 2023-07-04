@@ -10,6 +10,18 @@
 	--color-theme-1: #ff3e00;
 	--color-theme-2: #4075a6;
 	--color-text: rgba(0, 0, 0, 0.7);
+	
+	/*tailwind*/
+
+	--color-tailwind100: #F3F4F6;
+	--color-tailwind200: #E5E7EB
+	--color-tailwind300:
+	--color-tailwind400:
+
+	/*brand*/
+
+
+
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
 	font-family: var(--font-body);
