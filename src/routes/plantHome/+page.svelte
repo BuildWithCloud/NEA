@@ -1,12 +1,12 @@
 <script>
     import Logo from '$lib/images/Logo.png';
+    import Bell from '$lib/images/Bell.png'
 </script>
 <style>
     .grid-container {
         display: grid;
         grid-template-columns: 14% 86% ; /* Sets the width of two columns */
         grid-template-rows: 9.7VH 90.3VH; /* Sets the height of two rows */
-  
 }
     .menu {
         display:grid;
@@ -31,15 +31,30 @@
         align-items: center;
     }
     
+    .topBarGrid{
+        display: grid;
+        grid-template-columns: 40% 20% 20% 20%;
+        grid-template-rows: 100%;
+    }
 
+    
+    
 </style>
 
 <div class="grid-container">
     <div class="grid-item boxRed centre">
         <img src = {Logo} alt = "logo">
     </div>
-    <div class="grid-item boxRed">
-        <p> Search etc</p>
+    <div class="grid-item boxRed centre topBarGrid">
+        <div class="boxBlue"> 
+            
+        </div>
+        <div class="boxBlue"></div>
+        <div class="boxBlue">
+            <img src = "{Bell}" alt = "Notification Bell">
+        </div>
+        <div class="boxBlue"></div>
+
     </div>
     <div class="grid-item boxRed menu">
         <div class="boxBlue centre">
