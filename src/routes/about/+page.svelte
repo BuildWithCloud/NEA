@@ -6,6 +6,10 @@
 <div class="text-column">
 	<h1>About this app</h1>
 
+	<h1>
+		Joe's Website
+	</h1>
+
 	<p>
 		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
 		following into your command line and following the prompts:
