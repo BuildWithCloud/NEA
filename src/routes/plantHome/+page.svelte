@@ -1,18 +1,15 @@
 <script>
     import Logo from '$lib/images/Logo.png';
-    import Bell from '$lib/images/Bell.png'
+    import Bell from '$lib/images/Bell.png';
+    import Menu from './menu/+page.svelte';
 </script>
 <style>
     .grid-container {
         display: grid;
-        grid-template-columns: 14% 86% ; /* Sets the width of two columns */
-        grid-template-rows: 9.7VH 90.3VH; /* Sets the height of two rows */
-}
-    .menu {
-        display:grid;
-        grid-template-columns:100%;
-        grid-template-rows: 10% 10% 10% 10% 10%;
+        grid-template-columns: 14% 86% ;
+        grid-template-rows: 9.7VH 90.3VH;
     }
+    
 
     .boxRed {
         border-width: 2px;
@@ -33,11 +30,16 @@
     
     .topBarGrid{
         display: grid;
-        grid-template-columns: 40% 20% 20% 20%;
+        grid-template-columns: 45% 40% 5% 10%;
         grid-template-rows: 100%;
     }
 
-    
+    .profileIcon{
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background-color: var(--color-tailwind500);
+    }
     
 </style>
 
@@ -50,28 +52,16 @@
             
         </div>
         <div class="boxBlue"></div>
-        <div class="boxBlue">
+        <div class="boxBlue centre">
             <img src = "{Bell}" alt = "Notification Bell">
         </div>
-        <div class="boxBlue"></div>
+        <div class="boxBlue centre">
+            <span class = "profileIcon"></span>
+        </div>
 
     </div>
-    <div class="grid-item boxRed menu">
-        <div class="boxBlue centre">
-            <button type="button">My Tasks</button>
-        </div>
-        <div class="boxBlue centre">
-            <button type="button">My Plants</button>
-        </div>
-        <div class="boxBlue centre">
-            <button type="button">All Plants</button>
-        </div>
-        <div class="boxBlue centre">
-            <button type="button">Wish List</button>
-        </div>
-        <div class="boxBlue centre">
-            <button type="button">Available to Harvest</button>
-        </div>
+    <div class="grid-item boxRed">
+        <Menu />
     </div>
     <div class="grid-item boxRed">
         <p> main section</p>
