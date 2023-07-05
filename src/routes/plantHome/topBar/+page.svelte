@@ -1,7 +1,16 @@
 
-<script>
+<script lang='ts'>
     import Bell from '$lib/images/Bell.png';
     let searchText = '';
+    let selectedButton: HTMLButtonElement | null = null;
+
+    function selectButton(event: Event){
+        if(selectedButton){
+            selectedButton.dataset.selected = "false";
+        }
+        selectedButton = event.target as HTMLButtonElement;
+        selectedButton.dataset.selected = "true";
+    }
 </script>
 <style>
     .centre{
@@ -21,12 +30,12 @@
     }
     .topBarGrid{
         display: grid;
-        grid-template-columns: 45% 40% 5% 10%;
+        grid-template-columns: 50% 35% 5% 10%;
         grid-template-rows: 9.5VH;
     }
     .searchBarGrid{
         display: grid;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 35% 65%;
         grid-template-rows: 100%;
         background-color: var(--color-tailwind300);
         border-width: 5px;
@@ -61,20 +70,28 @@
         padding: 10px;
     }
 
-    .selectedSearchButton{
-        background-color: var(--color-brand500);
-        border-color: var(--color-brand500);
-    }
-    .unselectedSearchButton{
-        background-color: var(--color-tailwind400);
-        border-color: var(--color-tailwind400);
-    }
     .searchBarButton{
         height: 80%;
         width:100%;
+        font-family: PT Sans, sans-serif;
+        font-size: 130%;
         color: var(--color-tailwind900);
     }
-  
+    .searchBarButton[data-selected="true"]{
+        background-color: var(--color-brand500);
+        border-color: var(--color-brand500);
+        
+    }
+    .searchBarButton[data-selected="false"]{
+        background-color: var(--color-tailwind400);
+        border-color: var(--color-tailwind400);
+        
+    }
+    .fullHeight{
+        height: 100%;
+    }
+
+    
     
 </style>
 <div class="topBarGrid ">
@@ -84,15 +101,15 @@
                 <input type="text" class="textbox" bind:value="{searchText}" placeholder="Search" >
             </div>
         </div>
-        <div class="searchButtonsGrid centreVertically">
-            <div class = "centre">
-                <button class="searchBarButton selectedSearchButton">My Plants</button>
+        <div class="searchButtonsGrid centreVertically fullHeight">
+            <div class = "centre fullHeight">
+                <button class="searchBarButton" data-selected="true" bind:this={selectedButton} on:click={selectButton}>My Plants</button>
             </div>
-            <div class = "centre">
-                <button class="searchBarButton unselectedSearchButton">All Plants</button>
+            <div class = "centre fullHeight">
+                <button class="searchBarButton" data-selected="false" on:click={selectButton}>All Plants</button>
             </div>
-            <div class = "centre">
-                <button class="searchBarButton unselectedSearchButton">Wishlist</button>
+            <div class = "centre fullHeight">
+                <button class="searchBarButton" data-selected="false" on:click={selectButton}>Wishlist</button>
             </div>
 
         </div>
