@@ -18,11 +18,7 @@
         border-style: solid;
         border-color: red;
     }
-    .boxBlue{
-        border-width: 2px;
-        border-style: solid;
-        border-color: blue;
-    }
+    
 
     .centre{
         display: flex;
@@ -31,11 +27,7 @@
     }
     
     
-    .topBarGrid{
-        display: grid;
-        grid-template-columns: 45% 40% 5% 10%;
-        grid-template-rows: 100%;
-    }
+    
 
 
     
