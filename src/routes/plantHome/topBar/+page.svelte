@@ -71,7 +71,8 @@
     }
     .searchBarButton{
         height: 80%;
-        width:100%
+        width:100%;
+        color: var(--color-tailwind900);
     }
   
     
