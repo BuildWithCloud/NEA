@@ -60,6 +60,19 @@
     .searchBarPadding{
         padding: 10px;
     }
+
+    .selectedSearchButton{
+        background-color: var(--color-brand500);
+        border-color: var(--color-brand500);
+    }
+    .unselectedSearchButton{
+        background-color: var(--color-tailwind400);
+        border-color: var(--color-tailwind400);
+    }
+    .searchBarButton{
+        height: 80%;
+        width:100%
+    }
   
     
 </style>
@@ -71,9 +84,15 @@
             </div>
         </div>
         <div class="searchButtonsGrid centreVertically">
-            <div class = "centre">My Plants</div>
-            <div class = "centre">All Plants</div>
-            <div class = "centre">Wishlist</div>
+            <div class = "centre">
+                <button class="searchBarButton selectedSearchButton">My Plants</button>
+            </div>
+            <div class = "centre">
+                <button class="searchBarButton unselectedSearchButton">All Plants</button>
+            </div>
+            <div class = "centre">
+                <button class="searchBarButton unselectedSearchButton">Wishlist</button>
+            </div>
 
         </div>
              
