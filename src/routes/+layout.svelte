@@ -7,15 +7,43 @@
 
     let searchText = '';
 
-    let selectedButton: HTMLButtonElement | null = null;
+    let selectedButtonSearchBar: HTMLButtonElement | null = null;
+    let selectedButtonMenu: HTMLButtonElement | null = null;
 
-    function selectButton(event: Event){
-        if(selectedButton){
-            selectedButton.dataset.selected = "false";
+    let searchMyPlants: HTMLButtonElement | null = null;
+    let searchAllPlants: HTMLButtonElement | null = null;
+    let searchWishlist: HTMLButtonElement | null = null;
+    let menuMyPlants: HTMLButtonElement | null = null;
+    let menuAllPlants: HTMLButtonElement | null = null;
+    let menuhWishlist: HTMLButtonElement | null = null;
+    
+    function selectButtonSearchBar(event: Event){
+        if(selectedButtonSearchBar){
+            selectedButtonSearchBar.dataset.selected = "false";
         }
-        selectedButton = event.target as HTMLButtonElement;
-        selectedButton.dataset.selected = "true";
+        selectedButtonSearchBar = event.target as HTMLButtonElement;
+        selectedButtonSearchBar.dataset.selected = "true";
     }
+
+    function selectButtonMenu(event: Event){
+        if(selectedButtonMenu){
+            selectedButtonMenu.dataset.selected = "false";
+        }
+        selectedButtonMenu = event.target as HTMLButtonElement;
+        selectedButtonMenu.dataset.selected = "true";
+ 
+   
+            if (selectedButtonMenu && selectedButtonSearchBar && searchMyPlants && selectedButtonMenu === menuMyPlants) {
+                searchMyPlants.dataset.selected = "true";
+                selectedButtonSearchBar.dataset.selected = "true";
+            } else if (selectedButtonMenu && selectedButtonSearchBar && searchAllPlants && selectedButtonMenu === menuAllPlants) {
+                searchAllPlants.dataset.selected = "true";
+                selectedButtonSearchBar.dataset.selected = "true";
+            } else if (selectedButtonMenu && selectedButtonSearchBar && searchWishlist && selectedButtonMenu === menuhWishlist) {
+                searchWishlist.dataset.selected = "true";
+                selectedButtonSearchBar.dataset.selected = "true";
+            }
+ }
 </script>
 
 <div class="app">
@@ -32,13 +60,13 @@
 				</div>
 				<div class="searchButtonsGrid centreVertically fullHeight">
 					<div class = "centre fullHeight">
-						<button class="searchBarButton" data-selected="true" bind:this={selectedButton} on:click={selectButton}>My Plants</button>
+						<button class="searchBarButton" data-selected="true" bind:this={searchMyPlants} on:click={selectButtonSearchBar}>My Plants</button>
 					</div>
 					<div class = "centre fullHeight">
-						<button class="searchBarButton" data-selected="false" on:click={selectButton}>All Plants</button>
+						<button class="searchBarButton" data-selected="false" bind:this={searchAllPlants} on:click={selectButtonSearchBar}>All Plants</button>
 					</div>
 					<div class = "centre fullHeight">
-						<button class="searchBarButton" data-selected="false" on:click={selectButton}>Wishlist</button>
+						<button class="searchBarButton" data-selected="false" bind:this={searchWishlist} on:click={selectButtonSearchBar}>Wishlist</button>
 					</div>
 		
 				</div>
@@ -54,19 +82,19 @@
 		
 		</div> </div>
 		<div class="grid-item debugRed menu"> <div class="boxBlue centre">
-			<button type="button" class="menuButton" data-selected="true" bind:this={selectedButton} on:click={selectButton}>My Tasks</button>
+			<button type="button" class="menuButton" data-selected="true" bind:this={selectedButtonMenu} on:click={selectButtonMenu}>My Tasks</button>
 		</div>
 		<div class="boxBlue centre">
-			<button type="button" class="menuButton" on:click={selectButton}>My Plants</button>
+			<button type="button" class="menuButton" bind:this={menuMyPlants} on:click={selectButtonMenu}>My Plants</button>
 		</div>
 		<div class="boxBlue centre">
-			<button type="button" class="menuButton" on:click={selectButton}>All Plants</button>
+			<button type="button" class="menuButton" on:click={selectButtonMenu}>All Plants</button>
 		</div>
 		<div class="boxBlue centre">
-			<button type="button" class="menuButton" on:click={selectButton}>Wish List</button>
+			<button type="button" class="menuButton" on:click={selectButtonMenu}>Wish List</button>
 		</div>
 		<div class="boxBlue centre">
-			<button type="button" class="menuButton" on:click={selectButton}>Available to Harvest</button>
+			<button type="button" class="menuButton" on:click={selectButtonMenu}>Available to Harvest</button>
 		</div> </div>
 		<div class="grid-item debugRed">
 			<p> main section</p>
@@ -204,11 +232,9 @@
         border-color: var(--color-brand500);
         
     }
-    .menuButton[data-selected="false"]{
-        background-color: var(--color-tailwind100);
-        border-color: var(--color-tailwind100);
+    
         
-    }
+    
 	/*debug styles*/
 	.debugRed{
 		border-width: 2px;
