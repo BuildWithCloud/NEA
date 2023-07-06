@@ -1,8 +1,9 @@
 <script lang='ts'>
 	import Logo from '$lib/images/Logo.png';
 	import './styles.css';
-	import Menu from './menu.svelte';
-	import Bell from '$lib/images/Bell.png';
+    import Bell from '$lib/images/Bell.png';
+	//import Menu from './menu.svelte';
+	//import Bell from '$lib/images/Bell.png';
 
     let searchText = '';
 

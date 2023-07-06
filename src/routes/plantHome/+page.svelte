@@ -2,8 +2,8 @@
 <script>
     import Logo from '$lib/images/Logo.png';
     import Bell from '$lib/images/Bell.png';
-    //import Menu from './menu.svelte';
-    //import TopBar from './topBar.svelte';
+    //import Menu from './menu/+page.svelte';
+    //import TopBar from './topBar/+page.svelte';
 </script>
 <style>
     .grid-container {
@@ -18,7 +18,11 @@
         border-style: solid;
         border-color: red;
     }
-    
+    .boxBlue{
+        border-width: 2px;
+        border-style: solid;
+        border-color: blue;
+    }
 
     .centre{
         display: flex;
@@ -27,7 +31,11 @@
     }
     
     
-    
+    .topBarGrid{
+        display: grid;
+        grid-template-columns: 45% 40% 5% 10%;
+        grid-template-rows: 100%;
+    }
 
 
     
@@ -38,7 +46,7 @@
     <div class="grid-item boxRed centre">
         <img src = {Logo} alt = "logo">
     </div>
-    <!---<div class="grid-item boxRed"> <TopBar /> </div>
+    <!--<div class="grid-item boxRed"> <TopBar /> </div>  
     <div class="grid-item boxRed"> <Menu /> </div> -->
     <div class="grid-item boxRed">
         <p> main section</p>
